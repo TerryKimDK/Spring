@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id ="memberDao" class="com.appmv.spring.MemberDao">
+
+    </bean>
+    <bean id ="memberRegSvc" class="com.appmv.spring.MemberRegisterService">
+        <constructor-arg ref="memberDao"/> <!-- 생성자를 이용해서 객체를 주입을 하겠다 -->
+    </bean>
+    <bean id ="memberPwdSvc" class="com.appmv.spring.ChangePasswordService">
+        <property name="memberDao" ref="memberDao"/> <!-- property에 memberDao로 된 setter를 찾겠다 -->
+    </bean>
+</beans>
